@@ -16,3 +16,13 @@ def patients_list(request):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+@api_view(['GET'])
+def patient_detail(request, pk):
+    try:
+        patient = Patient.objects.get(pk=pk)
+        serializer = PatientSerializer(patient);
+        return Response(serializer.data)
+    except Patient.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    
