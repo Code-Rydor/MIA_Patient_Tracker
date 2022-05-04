@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.permissions import IsAuthenticated
 from rest_framework import status
 from .serializers import PatientSerializer
 from .models import Patient
@@ -25,7 +25,7 @@ def patients_list(request):
 def patient_detail(request, pk):
     patient = get_object_or_404(Patient, pk=pk)
     if request.method == 'GET':
-        serializer = PatientSerializer(patient);
+        serializer = PatientSerializer(patient)
         return Response(serializer.data)
     elif request.method == 'PUT':
         serializer = PatientSerializer(patient, data=request.data)
