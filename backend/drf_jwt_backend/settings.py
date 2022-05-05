@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'cars.apps.CarsConfig',  # This app is for example use only
     'patients',
+    'appointments',
 ]
 
 MIDDLEWARE = [
@@ -56,6 +57,8 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+DATE_INPUT_FORMATS = ['%M-%D-%Y']
 
 ROOT_URLCONF = 'drf_jwt_backend.urls'
 
@@ -106,7 +109,7 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_L10N = True
+USE_L10N = False
 
 USE_TZ = True
 
