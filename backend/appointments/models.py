@@ -21,7 +21,7 @@ class Appointment(models.Model):
         (fourpm, '4pm'),
         (sixpm, '6pm'),
     ]
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    patient_id = models.ForeignKey(Patient, on_delete=models.CASCADE)
-    appointment_day_id = models.ForeignKey(AppointmentDate, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)#Remove user... maybe?
+    patient_id = models.ForeignKey(Patient, on_delete=models.CASCADE)#Take off _id 
+    appointment_day_id = models.ForeignKey(AppointmentDate, on_delete=models.CASCADE)#Take off _id
     appointment_time = models.CharField(max_length=4, choices=APPOINTMENT_TIME_CHOICES, default='')
