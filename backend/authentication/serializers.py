@@ -15,6 +15,9 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
 
         token["username"] = user.username
         token["first_name"] = user.first_name
+        token["is_patient"] = user.is_patient
+        token["is_staff"] = user.is_staff
+        token["is_admin"] = user.is_admin
 
         return token
 
@@ -31,7 +34,8 @@ class RegistrationSerializer(serializers.ModelSerializer):
         # If added new columns through the User model, add them in the fields
         # list as seen below
         fields = ('username', 'password', 'email',
-                  'first_name', 'last_name',)
+                  'first_name', 'last_name', 'is_patient', 
+                  'is_staff', 'is_admin', 'is_tobecontacted')
 
     def create(self, validated_data):
 
@@ -40,6 +44,10 @@ class RegistrationSerializer(serializers.ModelSerializer):
             email=validated_data['email'],
             first_name=validated_data['first_name'],
             last_name=validated_data['last_name'],
+            is_patient=validated_data['is_patient'],
+            is_staff=validated_data['is_staff'],
+            is_admin=validated_data['is_admin'],
+            is_tobecontacted=validated_data['is_tobecontacted'],
 
             # If added new columns through the User model, add them in this
             # create method. Example below:

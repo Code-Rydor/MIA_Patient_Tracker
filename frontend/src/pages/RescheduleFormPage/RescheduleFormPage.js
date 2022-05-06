@@ -25,7 +25,7 @@ const RescheduleFormPage = () => {
                     Authorization: 'Bearer ' + token
                 }
             })
-            // navigate('/')
+            navigate('/') //add endpoint taking to page for selecting appoint day and time
         } catch (error) {
             console.log(error.message)
             

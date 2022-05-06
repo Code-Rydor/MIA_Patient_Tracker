@@ -3,10 +3,10 @@ import { Routes, Route } from "react-router-dom";
 import "./App.css";
 
 // Pages Imports
-import HomePage from "./pages/HomePage/HomePage";
+import MIAHomePage from "./pages/HomePage/MIAHomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
-import AddCarPage from "./pages/AddCarPage/AddCarPage";
+import RescheduleFormPage from "./pages/RescheduleFormPage/RescheduleFormPage";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -24,13 +24,13 @@ function App() {
           path="/"
           element={
             <PrivateRoute>
-              <HomePage />
+              <MIAHomePage />
             </PrivateRoute>
           }
         />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/addcar" element={<PrivateRoute><AddCarPage /></PrivateRoute>} />
+        <Route path="/rescheduleform" element={<PrivateRoute><RescheduleFormPage /></PrivateRoute>} />
       </Routes>
       <Footer />
     </div>
