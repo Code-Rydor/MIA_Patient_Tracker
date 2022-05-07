@@ -1,5 +1,6 @@
 import React from 'react';
 
+// This will hold the calendar from fullcalendar.io
 
 const SchedulePage = () => {
     return ( 

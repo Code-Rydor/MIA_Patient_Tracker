@@ -5,6 +5,8 @@ import axios from 'axios';
 import useAuth from '../../hooks/useAuth';
 import useCustomForm from '../../hooks/useCustomForm';
 
+//Once the complete appointment has been made and successfully added to the schedule, give a console.alert popup
+//giving "Appointment successfully created" confirmation message
 
 let initialValues = {
     first_name: "",
@@ -25,7 +27,7 @@ const RescheduleFormPage = () => {
                     Authorization: 'Bearer ' + token
                 }
             })
-            navigate('/') //add endpoint taking to page for selecting appoint day and time
+            navigate('/') //add endpoint taking the patient to page for selecting appoint day and time?
         } catch (error) {
             console.log(error.message)
             
