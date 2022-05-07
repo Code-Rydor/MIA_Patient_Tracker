@@ -11,15 +11,17 @@ const Navbar = () => {
     <div className="navBar">
       <ul>
         <li className="brand">
-          <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+          <Link to="/" style={{ textDecoration: "none", color: "green" }}>
             <b>MIA Patient Tracker</b>
           </Link>
         </li>
+        <li><button onClick={() => navigate("/tobecontacted")}>Make Contact</button></li>
+        <li><button onClick={() => navigate("/schedule")}>Schedule</button></li>
         <li>
           {user ? (
             <button onClick={logoutUser}>Logout</button>
           ) : (
-            <button onClick={() => navigate("/login")}>Login</button>
+              <button onClick={() => navigate("/login")}>Login</button>
           )}
         </li>
       </ul>
@@ -28,3 +30,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

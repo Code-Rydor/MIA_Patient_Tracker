@@ -10,6 +10,7 @@ const RegisterPage = () => {
     password: "",
     firstName: "",
     lastName: "",
+    is_patient: "",
   };
   const [formData, handleInputChange, handleSubmit] = useCustomForm(
     defaultValues,
@@ -61,6 +62,15 @@ const RegisterPage = () => {
             type="text"
             name="password"
             value={formData.password}
+            onChange={handleInputChange}
+          />
+        </label>
+        <label>
+          Are you a patient?:{" "}
+          <input
+            type="checkbox"
+            name="is_patient"
+            value={formData.is_patient}
             onChange={handleInputChange}
           />
         </label>
