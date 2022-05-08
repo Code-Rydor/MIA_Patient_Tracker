@@ -7,6 +7,7 @@ import MIAHomePage from "./pages/HomePage/MIAHomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import RescheduleFormPage from "./pages/RescheduleFormPage/RescheduleFormPage";
+import ToBeContactedPage from "./pages/ToBeContactedPage/ToBeContactedPage";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -31,6 +32,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/rescheduleform" element={<PrivateRoute><RescheduleFormPage /></PrivateRoute>} />
+        <Route path="/tobecontacted" element={<PrivateRoute><ToBeContactedPage /></PrivateRoute>} />
       </Routes>
       <Footer />
     </div>
