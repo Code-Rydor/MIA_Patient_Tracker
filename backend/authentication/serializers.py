@@ -44,10 +44,6 @@ class RegistrationSerializer(serializers.ModelSerializer):
             email=validated_data['email'],
             first_name=validated_data['first_name'],
             last_name=validated_data['last_name'],
-            is_patient=validated_data['is_patient'],
-            is_staff=validated_data['is_staff'],
-            is_admin=validated_data['is_admin'],
-            is_tobecontacted=validated_data['is_tobecontacted'],
 
             # If added new columns through the User model, add them in this
             # create method. Example below:

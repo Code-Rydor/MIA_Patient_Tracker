@@ -10,7 +10,6 @@ const RegisterPage = () => {
     password: "",
     firstName: "",
     lastName: "",
-    // is_patient: "",
   };
   const [formData, handleInputChange, handleSubmit] = useCustomForm(
     defaultValues,
@@ -65,15 +64,6 @@ const RegisterPage = () => {
             onChange={handleInputChange}
           />
         </label>
-        {/* <label>
-          Are you a patient?:{" "}
-          <input
-            type="checkbox"
-            name="is_patient"
-            value={formData.is_patient}
-            onChange={handleInputChange}
-          />
-        </label> */}
         <p style={{ fontSize: "12px" }}>
           NOTE: Make this an uncommon password with characters, numbers, and
           special characters!
