@@ -4,7 +4,7 @@ from django.contrib.auth.models import AbstractUser
 
 class User(AbstractUser):
     phone_number = models.CharField(max_length=20, default="")
-    is_patient = models.BooleanField('patient status', default=False)
+    is_patient = models.BooleanField('patient status', default=True)
     is_staff = models.BooleanField('staff status', default=False)
     is_admin = models.BooleanField('admin status', default=False)
     is_tobecontacted = models.BooleanField('to be contacted status', default=False)

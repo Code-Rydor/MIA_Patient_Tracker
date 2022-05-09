@@ -59,5 +59,5 @@ class RegistrationSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'phone_number', 'email',
+        fields = ['id', 'first_name', 'last_name', 'phone_number', 'email',
         'is_patient', 'is_staff', 'is_admin', 'is_tobecontacted']

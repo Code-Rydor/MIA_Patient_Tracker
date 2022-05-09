@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import useAuth from "../../hooks/useAuth";
 import { Link } from "react-router-dom";
-import DisplaySearchedPatients from '../../components/DisplaySearchedPatients/DisplaySearchedPatients';
-import SearchForPatient from '../../components/SearchBar/SearchForPatient';
+import DisplaySearchedUsers from '../../components/DisplaySearchedUsers/DisplaySearchedUsers';
+import SearchForUser from '../../components/SearchForUser/SearchForUser';
 import axios from "axios";
 
 //This page will show the table containing list of patients to be contacted
@@ -11,40 +11,40 @@ import axios from "axios";
 const ToBeContactedPage = () => {
 
     const [user, token] = useAuth();
-    const [patients, setPatients] = useState([]);
+    const [users, setUsers] = useState([]);
     const [input, setInput] = useState('');
-    const [filteredPatients, setFilteredPatients] = useState([])
+    const [filteredUsers, setFilteredUsers] = useState([])
     
     useEffect(() => {
-        getAllPatients();
+        getAllUsers();
     }, [token]);
 
-    const getAllPatients = async () => {
+    const getAllUsers = async () => {
     try {
-        let response = await axios.get("http://127.0.0.1:8000/api/patients/", {
+        let response = await axios.get("http://127.0.0.1:8000/api/auth/users/", {
         headers: {
             Authorization: "Bearer " + token,
         },
         });
-        setPatients(response.data);
+        setUsers(response.data);
     } catch (error) {
         console.log(error.message);
     }
     };
     const handleSubmit = (event) => {
       event.preventDefault()
-      let filteredResults = patients.filter((patient) => {
-        if (patient.first_name.toLowerCase() == input.toLowerCase() ||
-          patient.last_name.toLowerCase() == input.toLowerCase() ||
-          patient.phone_number.includes(input))
+      let filteredResults = users.filter((user) => {
+        if (user.first_name.toLowerCase() == input.toLowerCase() ||
+        user.last_name.toLowerCase() == input.toLowerCase() ||
+        user.phone_number.includes(input))
           return true
       })
-      setFilteredPatients(filteredResults)
+      setFilteredUsers(filteredResults)
     };
     return ( 
         <div>
-            <SearchForPatient handleSubmit={handleSubmit} input={input} setInput={setInput} />
-            <DisplaySearchedPatients filteredPatients={filteredPatients} input={input} />
+            <SearchForUser handleSubmit={handleSubmit} input={input} setInput={setInput} />
+            <DisplaySearchedUsers filteredUsers={filteredUsers} input={input} />
         </div>
      );
 }

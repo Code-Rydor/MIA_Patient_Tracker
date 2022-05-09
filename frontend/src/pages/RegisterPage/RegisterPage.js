@@ -10,7 +10,7 @@ const RegisterPage = () => {
     password: "",
     firstName: "",
     lastName: "",
-    is_patient: "",
+    phoneNumber:"",
   };
   const [formData, handleInputChange, handleSubmit] = useCustomForm(
     defaultValues,
@@ -44,6 +44,15 @@ const RegisterPage = () => {
             type="text"
             name="lastName"
             value={formData.lastName}
+            onChange={handleInputChange}
+          />
+        </label>
+        <label>
+          Phone Number:{" "}
+          <input
+            type="text"
+            name="phoneNumber"
+            value={formData.phoneNumber}
             onChange={handleInputChange}
           />
         </label>
