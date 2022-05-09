@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SearchForPatient = ({handleSubmit, input , setInput}) => {
+const SearchForUser = ({handleSubmit, input , setInput}) => {
     
     return ( 
         <div>
@@ -12,4 +12,4 @@ const SearchForPatient = ({handleSubmit, input , setInput}) => {
      );
 }
  
-export default SearchForPatient;
+export default SearchForUser;
