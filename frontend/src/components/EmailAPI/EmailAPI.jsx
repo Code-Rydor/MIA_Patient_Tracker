@@ -1,5 +1,3 @@
-let EmailAPIKEY = "line 76 in gitignore"
-
 //Update your development environment with your SENDGRID_API_KEY. Run the following in your shell:
 // echo "export SENDGRID_API_KEY='YOUR_API_KEY'" > sendgrid.env
 // echo "sendgrid.env" >> .gitignore
