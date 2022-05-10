@@ -1,17 +1,15 @@
-const DisplaySearchedUsers = ({ filteredUsers }) => {
-    
-    // const handleOnClick = (event) => {
-    //     event.preventDefault()
+import React, { useState } from 'react';
 
-    let userToContact = {
-        first_name: filteredUsers.first_name,
-        last_name: filteredUsers.last_name,
-        phone_number: filteredUsers.phone_number,
-        email: filteredUsers.email
-    }
+const DisplaySearchedUsers = ({ patchedUser, patchToBeContacted, token }) => {
+
+    let Token = token
     
+    function handlePatchSubmit() {
+        patchToBeContacted(patchedUser);
+    };
+
     return ( 
-        <table>
+        <table onSubmit={handlePatchSubmit( Token)}>
             <thead>
                 <tr>
                     <th>First Name</th>
@@ -21,7 +19,7 @@ const DisplaySearchedUsers = ({ filteredUsers }) => {
                 </tr>
             </thead>
             <tbody>
-                {filteredUsers
+                {patchedUser
                     .map((user, index) => {
                         return (
                             <tr key={index}>

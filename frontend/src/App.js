@@ -1,6 +1,7 @@
 // General Imports
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route} from "react-router-dom";
 import "./App.css";
+
 
 // Pages Imports
 import MIAHomePage from "./pages/HomePage/MIAHomePage";
