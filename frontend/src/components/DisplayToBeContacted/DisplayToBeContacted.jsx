@@ -7,6 +7,7 @@ const DisplayToBeContacted = ({ users }) => {
         if (user.is_tobecontacted == true)
             return true
     })
+    
 
     return ( 
         <div>

@@ -1,20 +1,16 @@
-//Update your development environment with your SENDGRID_API_KEY. Run the following in your shell:
-// echo "export SENDGRID_API_KEY='YOUR_API_KEY'" > sendgrid.env
-// echo "sendgrid.env" >> .gitignore
-// source ./sendgrid.env
+import sgMail from '@sendgrid/mail'
 
 // using Twilio SendGrid's v3 Node.js Library
 // https://github.com/sendgrid/sendgrid-nodejs
 
-javascript
-const sgMail = require('@sendgrid/mail')
 sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+
 const msg = {
-  to: 'test@example.com', // Change to your recipient
-  from: 'test@example.com', // Change to your verified sender
-  subject: 'Sending with SendGrid is Fun',
-  text: 'and easy to do anywhere, even with Node.js',
-  html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+  to: 'dcc.capstone2022@outlook.com', // Change to your recipient
+  from: 'dcc3.capstone@outlook.com', // Change to your verified sender
+  subject: 'Sending with SendGrid is Fun12',
+  text: '34and easy to do anywhere, even with Node.js',
+  html: '<strong>56and easy to do anywhere, even with Node.js</strong>',
 }
 sgMail
   .send(msg)
@@ -24,3 +20,6 @@ sgMail
   .catch((error) => {
     console.error(error)
   })
+
+
+
