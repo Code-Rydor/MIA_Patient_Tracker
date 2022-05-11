@@ -1,16 +1,17 @@
 import React from 'react';
-import ScheduleCalendar from '../../components/ScheduleCalendar/ScheduleCalendar';
+import FullCalendar from '@fullcalendar/react';
+import daygridPlugin from '@fullcalendar/daygrid';
+import interactionPlugin from '@fullcalendar/interaction';
 
-const SchedulePage = () => {
-    return ( 
-        <div>
-           <ScheduleCalendar /> 
-        </div>
-        
-     );
+
+export default () => {
+    const handleDateClick = (dateClickInfo:any) => {
+        console.log(dateClickInfo.dateStr);
+    }
+    return (
+        <FullCalendar
+            plugins={[daygridPlugin, interactionPlugin]}
+            dateClick={handleDateClick}
+        />
+    )
 }
- 
-export default SchedulePage;
-
-
-//Need to install webpack or something like that. webpack.config.js

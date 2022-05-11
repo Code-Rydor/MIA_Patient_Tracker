@@ -9,6 +9,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import RescheduleFormPage from "./pages/RescheduleFormPage/RescheduleFormPage";
 import ToBeContactedPage from "./pages/ToBeContactedPage/ToBeContactedPage";
+import SchedulePage from "./pages/SchedulePage/SchedulePage";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -16,7 +17,6 @@ import Footer from "./components/Footer/Footer";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
-import SchedulePage from "./pages/SchedulePage/SchedulePage";
 
 function App() {
   return (
