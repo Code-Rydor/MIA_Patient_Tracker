@@ -43,20 +43,6 @@ const ToBeContactedPage = () => {
       setSearchedUser(filteredResults)
     };
 
-    // const patchToBeContacted = async (pk = filteredUsers.id) => {
-    //     try {
-    //         let response = await axios.patch(`http://127.0.0.1:8000/api/auth/users/patch/${pk}/`, {
-    //             headers: {
-    //                 Authorization: "Bearer " + token,
-    //             },
-    //         });
-    //         console.log(response.data)
-    //         setPatchedUser(response.data)
-    //     } catch (error) {
-    //         console.log(error.message);
-    //     }
-    // };
-
     return ( 
         <div>
             <SearchForUser handleSubmit={handleSubmit} input={input} setInput={setInput} />

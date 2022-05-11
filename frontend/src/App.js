@@ -16,6 +16,7 @@ import Footer from "./components/Footer/Footer";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
+import SchedulePage from "./pages/SchedulePage/SchedulePage";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/rescheduleform" element={<PrivateRoute><RescheduleFormPage /></PrivateRoute>} />
         <Route path="/tobecontacted" element={<PrivateRoute><ToBeContactedPage /></PrivateRoute>} />
+        <Route path="/schedule" element={<PrivateRoute><SchedulePage /></PrivateRoute>} />
       </Routes>
       <Footer />
     </div>

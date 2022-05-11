@@ -1,11 +1,16 @@
 import React from 'react';
-
-// This will hold the calendar from fullcalendar.io
+import ScheduleCalendar from '../../components/ScheduleCalendar/ScheduleCalendar';
 
 const SchedulePage = () => {
     return ( 
-        <h1>Hello</h1>
+        <div>
+           <ScheduleCalendar /> 
+        </div>
+        
      );
 }
  
 export default SchedulePage;
+
+
+//Need to install webpack or something like that. webpack.config.js
