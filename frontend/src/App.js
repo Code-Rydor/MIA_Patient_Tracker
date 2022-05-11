@@ -10,6 +10,7 @@ import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import RescheduleFormPage from "./pages/RescheduleFormPage/RescheduleFormPage";
 import ToBeContactedPage from "./pages/ToBeContactedPage/ToBeContactedPage";
 import SchedulePage from "./pages/SchedulePage/SchedulePage";
+import EmailPage from "./pages/EmailPage/EmailPage";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -36,6 +37,7 @@ function App() {
         <Route path="/rescheduleform" element={<PrivateRoute><RescheduleFormPage /></PrivateRoute>} />
         <Route path="/tobecontacted" element={<PrivateRoute><ToBeContactedPage /></PrivateRoute>} />
         <Route path="/schedule" element={<PrivateRoute><SchedulePage /></PrivateRoute>} />
+        <Route path="/email" element={<PrivateRoute><EmailPage /></PrivateRoute>} />
       </Routes>
       <Footer />
     </div>

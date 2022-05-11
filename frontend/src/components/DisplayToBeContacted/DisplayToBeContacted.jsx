@@ -1,14 +1,16 @@
+import { useNavigate } from "react-router-dom";
+
 //! I want this table to re render when a new name gets added
 
 const DisplayToBeContacted = ({ users }) => {
     
+    const navigate = useNavigate();
 
     let selectedUser = users.filter((user) => {
         if (user.is_tobecontacted == true)
             return true
     })
     
-
     return ( 
         <div>
             <table>
@@ -34,7 +36,7 @@ const DisplayToBeContacted = ({ users }) => {
                         })}
                 </tbody>
             </table>
-            <button>Send Email</button>
+            <button onClick={() => navigate("/email")}>Email</button>
         </div>
      );
 }

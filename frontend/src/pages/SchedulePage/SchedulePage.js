@@ -5,7 +5,7 @@ import interactionPlugin from '@fullcalendar/interaction';
 
 
 export default () => {
-    const handleDateClick = (dateClickInfo:any) => {
+    const handleDateClick = (dateClickInfo) => {
         console.log(dateClickInfo.dateStr);
     }
     return (
