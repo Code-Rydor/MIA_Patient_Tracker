@@ -8,13 +8,36 @@ import 'react-toastify/dist/ReactToastify.css'
 
 const EmailPage = () => {
 
+    const [user, token] = useAuth();
+    const [patientUsers, setPatientUsers] = useState([]);
+    const [index, setIndex] = useState(0)
+    const [currentPatient, setCurrentPatient] = useState({})
     const form = useRef();
+
+    useEffect(() => {
+        getAllPatientUsers();
+    }, [token]);
+
+    const getAllPatientUsers = async () => {
+    try {
+        let response = await axios.get("http://127.0.0.1:8000/api/auth/users/patients/", {
+        headers: {
+            Authorization: "Bearer " + token,
+        },
+        });
+        setPatientUsers(response.data);
+        setCurrentPatient(response.data[0])
+    } catch (error) {
+        console.log(error.message);
+    }
+    };
 
   const sendEmail = (e) => {
     e.preventDefault();
 
     emailjs.sendForm(process.env.REACT_APP_YOUR_SERVICE_ID, process.env.REACT_APP_YOUR_TEMPLATE_ID, form.current, process.env.REACT_APP_YOUR_PUBLIC_KEY)
         .then((result) => {
+            console.log(result)
             toast(`Message Delivered ${result.text}`, {
                 position: "top-right",
                 autoClose: 4000,
@@ -26,17 +49,21 @@ const EmailPage = () => {
             });
       }, (error) => {
           console.log(error.text);
-      });
-  };
+        });
+      setCurrentPatient(patientUsers[index + 1])
+      setIndex(index+1)
+    };
+    
+
 
     return (
-        <form ref={form} onSubmit={sendEmail}>
+        <form ref={form} onSubmit={sendEmail}>    
             <label>Name</label>
-            <input type="text" name="user_name" value="Hello" />
+            <input type="text" name="user_name" value="Your Chiropractor" />
             <label>Email</label>
-            <input type="email" name="user_email" value="Hello2"/>
+            <input type="email" name="receiving_email_address" value={currentPatient.email}/>
             <label>Message</label>
-            <textarea name="message" value="link to page"/>
+            <textarea name="message" value="Click the link below to make a new appointment today!"/>
             <button type="submit" value="Send">Send</button>
             <ToastContainer
             position="top-right"

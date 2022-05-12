@@ -8,12 +8,13 @@ import axios from "axios";
 
 const ToBeContactedPage = () => {
 
-    const [token] = useAuth();
+    const [user, token] = useAuth();
     const [users, setUsers] = useState([]);
     const [input, setInput] = useState('');
     const [searchedUser, setSearchedUser] = useState([])
     
     useEffect(() => {
+        
         getAllUsers();
     }, [token]);
 

@@ -28,6 +28,7 @@ def users_list(request):
         serializer = UserSerializer(users, many=True)
         return Response(serializer.data)
 
+
 @api_view(['GET', 'PUT', 'DELETE'])
 @permission_classes([IsAuthenticated])
 def user_detail(request, pk):
@@ -44,6 +45,7 @@ def user_detail(request, pk):
         user.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
+
 @api_view(['PATCH'])
 @permission_classes([IsAuthenticated])
 def user_patch(request, pk):
@@ -51,3 +53,14 @@ def user_patch(request, pk):
     user.is_tobecontacted = True
     user.save()
     return Response(status=status.HTTP_200_OK)
+
+
+#GET all patients filter is_tobecontacted = True
+# Send through UserSerializer
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_patient_users(request):
+    patientUser = User.objects.filter(is_tobecontacted = True)
+    serializer = UserSerializer(patientUser, many=True)
+    return Response(serializer.data)

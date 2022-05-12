@@ -10,4 +10,5 @@ urlpatterns = [
     path('users/', views.users_list),
     path('users/<int:pk>/', views.user_detail),
     path('users/patch/<int:pk>/', views.user_patch),
+    path('users/patients/', views.get_patient_users)
 ]

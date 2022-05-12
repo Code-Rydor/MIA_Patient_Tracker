@@ -22,20 +22,21 @@ const RescheduleFormPage = () => {
 
     async function postNewAppointment() {
         try {
-            let response = await axios.post("http://127.0.0.1:8000/api/patients/", formData, {
+            let response = await axios.get("http://127.0.0.1:8000/api/appointments/", {
                 headers: {
                     Authorization: 'Bearer ' + token
                 }
             })
-            navigate('/') //add endpoint taking the patient to page for selecting appoint day and time?
+            console.log(response.data)
+            // navigate('/') add endpoint taking the patient to page for selecting appoint day and time?
         } catch (error) {
             console.log(error.message)
             
         }
-    }
+    };
 
 
-    return ( 
+    return (
         <div className="container">
             <h2>{user.username}</h2>
             <form className="form" onSubmit={handleSubmit}>

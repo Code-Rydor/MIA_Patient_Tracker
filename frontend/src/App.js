@@ -34,7 +34,7 @@ function App() {
         />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/rescheduleform" element={<PrivateRoute><RescheduleFormPage /></PrivateRoute>} />
+        <Route path="/makeappointment" element={<PrivateRoute><RescheduleFormPage /></PrivateRoute>} />
         <Route path="/tobecontacted" element={<PrivateRoute><ToBeContactedPage /></PrivateRoute>} />
         <Route path="/schedule" element={<PrivateRoute><SchedulePage /></PrivateRoute>} />
         <Route path="/email" element={<PrivateRoute><EmailPage /></PrivateRoute>} />

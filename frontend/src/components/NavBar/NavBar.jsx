@@ -16,6 +16,7 @@ const Navbar = () => {
           </Link>
         </li>
         <li><button onClick={() => navigate("/tobecontacted")}>Make Contact</button></li>
+        <li><button onClick={() => navigate("/makeappointment")}>Make Appointment</button></li>
         <li><button onClick={() => navigate("/schedule")}>Schedule</button></li>
         <li>
           {user ? (
