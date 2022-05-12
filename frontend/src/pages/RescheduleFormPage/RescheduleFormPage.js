@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -18,20 +19,37 @@ let initialValues = {
 const RescheduleFormPage = () => {
     const [user, token] = useAuth()
     const navigate = useNavigate()
-    const [formData, handleInputChange, handleSubmit] = useCustomForm(initialValues, postNewAppointment)
+    const [formData, handleInputChange, handleSubmit] = useCustomForm(initialValues)
 
-    async function postNewAppointment() {
+    // async function postNewAppointment() {
+    //     try {
+    //         let response = await axios.get("http://127.0.0.1:8000/api/appointments/", {
+    //             headers: {
+    //                 Authorization: 'Bearer ' + token
+    //             }
+    //         })
+    //         console.log(response.data)
+    //         // navigate('/') add endpoint taking the patient to page for selecting appoint day and time?
+    //     } catch (error) {
+    //         console.log(error.message)  
+    //     }
+    // };
+    
+    useEffect(() => {
+        
+        getAppointmentDates();
+    }, [token]);
+    
+    async function getAppointmentDates() {
         try {
-            let response = await axios.get("http://127.0.0.1:8000/api/appointments/", {
+            let response = await axios.get("http://127.0.0.1:8000/api/appointments/dates/", {
                 headers: {
                     Authorization: 'Bearer ' + token
                 }
             })
             console.log(response.data)
-            // navigate('/') add endpoint taking the patient to page for selecting appoint day and time?
         } catch (error) {
             console.log(error.message)
-            
         }
     };
 
