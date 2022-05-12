@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import useAuth from "../../hooks/useAuth";
-import { Link } from "react-router-dom";
 import DisplaySearchedUsers from '../../components/DisplaySearchedUsers/DisplaySearchedUsers';
 import SearchForUser from '../../components/SearchForUser/SearchForUser';
 import DisplayToBeContacted from '../../components/DisplayToBeContacted/DisplayToBeContacted';
@@ -9,7 +8,7 @@ import axios from "axios";
 
 const ToBeContactedPage = () => {
 
-    const [user, token] = useAuth();
+    const [token] = useAuth();
     const [users, setUsers] = useState([]);
     const [input, setInput] = useState('');
     const [searchedUser, setSearchedUser] = useState([])
