@@ -1,80 +1,94 @@
-// import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import useAuth from '../../hooks/useAuth';
 
-// import { useNavigate } from 'react-router-dom';
-// import axios from 'axios';
+//Once the complete appointment has been made and successfully added to the schedule, give a console.alert popup
+//giving "Appointment successfully created" confirmation message
 
-// import useAuth from '../../hooks/useAuth';
-// import useCustomForm from '../../hooks/useCustomForm';
+// let initialValues = {
+//     first_name: "",
+//     last_name: "",
+//     phone_number: "",
+//     email: "",
+// };
 
-// //Once the complete appointment has been made and successfully added to the schedule, give a console.alert popup
-// //giving "Appointment successfully created" confirmation message
+    // const [formData, handleInputChange, handleSubmit] = useCustomForm(initialValues)
 
-// // let initialValues = {
-// //     first_name: "",
-// //     last_name: "",
-// //     phone_number: "",
-// //     email: "",
-// // };
+    // async function postNewAppointment() {
+    //     try {
+    //         let response = await axios.get("http://127.0.0.1:8000/api/appointments/", {
+    //             headers: {
+    //                 Authorization: 'Bearer ' + token
+    //             }
+    //         })
+    //         console.log(response.data)
+    //         // navigate('/') add endpoint taking the patient to page for selecting appoint day and time?
+    //     } catch (error) {
+    //         console.log(error.message)
+    //     }
+    // };
 
-//     // const [formData, handleInputChange, handleSubmit] = useCustomForm(initialValues)
+const RescheduleFormPage = () => {
 
-//     // async function postNewAppointment() {
-//     //     try {
-//     //         let response = await axios.get("http://127.0.0.1:8000/api/appointments/", {
-//     //             headers: {
-//     //                 Authorization: 'Bearer ' + token
-//     //             }
-//     //         })
-//     //         console.log(response.data)
-//     //         // navigate('/') add endpoint taking the patient to page for selecting appoint day and time?
-//     //     } catch (error) {
-//     //         console.log(error.message)
-//     //     }
-//     // };
-
-// const RescheduleFormPage = () => {
-
-//     const [user, token] = useAuth()
-//     const [dates, setDates] = useState([])
-//     const [currentDate, setCurrentDate] = useState({})
+    const [user, token] = useAuth()
+    const [dates, setDates] = useState([])
+    const [times, setTimes] = useState([])
     
-//     useEffect(() => {
+    useEffect(() => {
         
-//         getAppointmentDates();
-//     }, [token]);
+        getAppointmentDates();
+        getAppointmentTimes();
+    }, [token]);
     
-//     async function getAppointmentDates() {
-//         try {
-//             let response = await axios.get("http://127.0.0.1:8000/api/appointments/dates/", {
-//                 headers: {
-//                     Authorization: 'Bearer ' + token
-//                 }
-//             })
-//             setDates(response.data)
-//             setCurrentDate(response.data[0])
-//             console.log(response.data)
-//         } catch (error) {
-//             console.log(error.message)
-//         }
-//     };
+    async function getAppointmentDates() {
+        try {
+            let response = await axios.get("http://127.0.0.1:8000/api/appointments/dates/", {
+                headers: {
+                    Authorization: 'Bearer ' + token
+                }
+            })
+            setDates(response.data)
+            console.log("Dates:", response.data)
+        } catch (error) {
+            console.log(error.message)
+        }
+    };
 
+    async function getAppointmentTimes() {
+        try {
+            let response = await axios.get("http://127.0.0.1:8000/api/appointments/", {
+                headers: {
+                    Authorization: 'Bearer ' + token
+                }
+            })
+            setTimes(response.data)
+            console.log("Times:", response.data)
+        } catch (error) {
+            console.log(error.message)
+        }
+    };
 
-//     return (
-//         <form>
-//             <label>Select Appointment Date: </label>
-//             <select>
-//                 {dates.map(date => (
-//                     <option key={date} value={date}>
-//                         {date}
-//                     </option>
-//                 ))}
-//             </select>
-//         </form>
-//      );
-// }
+    return (
+        <div>
+            <form aria-label="Default select example">
+            <label>Select Appointment Date: </label>
+            <select>
+                {dates.map((option) => <option value={option.date}>{option.date}</option>)}
+            </select>
+            <label>Select Appointment Time: </label>
+            <select>
+                <option>8am</option>
+                <option>10am</option>
+                <option>12pm</option>
+                <option>2pm</option>
+                <option>4pm</option>
+                <option>6pm</option>
+            </select>
+            </form>
+            <button>Submit</button>
+        </div>
+     );
+}
  
-// export default RescheduleFormPage;
+export default RescheduleFormPage;
 
-
-// <option value="6/1/22">6/1/22</option>
-// <option value="6/2/22">6/2/22</option>
