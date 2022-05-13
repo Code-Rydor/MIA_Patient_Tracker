@@ -55,7 +55,7 @@ const EmailPage = () => {
         });
       setCurrentPatient(patientUsers[index + 1])
       setIndex(index + 1)
-      navigate('/')
+    //   navigate('/')
     };
     
 
