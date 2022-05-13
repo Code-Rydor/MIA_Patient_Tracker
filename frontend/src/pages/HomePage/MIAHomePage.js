@@ -11,7 +11,9 @@ const MIAHomePage = () => {
 
     return ( 
         <div>
-            <h1>Welcome to the Home Page</h1>
+        <h1>Welcome to the MIA Patient Tracker</h1>
+        <br></br>
+        <h3>Click "Make Contact" to get started</h3>
 
         </div>
      );

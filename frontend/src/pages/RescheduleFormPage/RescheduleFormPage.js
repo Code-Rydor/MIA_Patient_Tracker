@@ -75,6 +75,8 @@ const RescheduleFormPage = () => {
     return (
         <div class="form-group">
             <form aria-label="Default select example">
+            <label class="col-form-label" for="inputDefault">Enter patient name:</label>
+            <input type="text" class="form-control" id="inputDefault"></input>
             <label for="exampleSelect1">Select Appointment Date: </label>
             <select class="form-select" id="exampleSelect1">
                 {dates.map((option) => <option value={option.date}>{option.date}</option>)}
