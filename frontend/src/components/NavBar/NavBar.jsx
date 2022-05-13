@@ -15,6 +15,7 @@ const Navbar = () => {
             <b>MIA Patient Tracker</b>
           </Link>
         </li>
+        <li><button onClick={() => navigate("/addpatient")}>Add New Patient</button></li>
         <li><button onClick={() => navigate("/tobecontacted")}>Make Contact</button></li>
         <li><button onClick={() => navigate("/makeappointment")}>Make Appointment</button></li>
         <li><button onClick={() => navigate("/schedule")}>Schedule</button></li>

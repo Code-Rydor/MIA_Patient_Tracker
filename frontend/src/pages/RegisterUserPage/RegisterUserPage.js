@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import AuthContext from "../../context/AuthContext";
 import useCustomForm from "../../hooks/useCustomForm";
 
-const RegisterPage = () => {
+const RegisterUserPage = () => {
   const { registerUser } = useContext(AuthContext);
   const defaultValues = {
     username: "",
@@ -84,4 +84,4 @@ const RegisterPage = () => {
   );
 };
 
-export default RegisterPage;
+export default RegisterUserPage;
