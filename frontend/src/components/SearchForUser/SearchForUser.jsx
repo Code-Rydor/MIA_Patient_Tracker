@@ -6,7 +6,7 @@ const SearchForUser = ({handleSubmit, input , setInput}) => {
         <div>
             <form onSubmit={(e) => handleSubmit(e)}>
                 <input type='text' value={input} onChange={(event) => setInput(event.target.value)}/>
-                <button type='submit'>Search</button>
+                <button class="btn btn-outline-primary" type='submit'>Search</button>
             </form>
         </div>
      );

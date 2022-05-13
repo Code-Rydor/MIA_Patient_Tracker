@@ -11,7 +11,7 @@ const Navbar = () => {
     <div className="navBar">
       <ul>
         <li className="brand">
-          <Link to="/" style={{ textDecoration: "none", color: "green" }}>
+          <Link to="/" style={{ textDecoration: "none", color: "white" }}>
             <b>MIA Patient Tracker</b>
           </Link>
         </li>

@@ -4,6 +4,7 @@ import DisplaySearchedUsers from '../../components/DisplaySearchedUsers/DisplayS
 import SearchForUser from '../../components/SearchForUser/SearchForUser';
 import DisplayToBeContacted from '../../components/DisplayToBeContacted/DisplayToBeContacted';
 import axios from "axios";
+import "bootswatch/dist/cerulean/bootstrap.min.css";
 
 
 const ToBeContactedPage = () => {

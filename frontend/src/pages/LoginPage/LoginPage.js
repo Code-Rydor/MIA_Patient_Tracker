@@ -2,7 +2,8 @@ import React, { useContext, useEffect } from "react";
 import AuthContext from "../../context/AuthContext";
 import useCustomForm from "../../hooks/useCustomForm";
 import { Link } from "react-router-dom";
-import "./LoginPage.css";
+import "bootswatch/dist/cerulean/bootstrap.min.css";
+
 
 const LoginPage = () => {
   const { loginUser, isServerError } = useContext(AuthContext);
@@ -43,7 +44,7 @@ const LoginPage = () => {
           <p className="error">Login failed, incorrect credentials!</p>
         ) : null}
         <Link to="/register">Click to register!</Link>
-        <button>Login!</button>
+        <button class="btn btn-outline-primary">Login!</button>
       </form>
     </div>
   );

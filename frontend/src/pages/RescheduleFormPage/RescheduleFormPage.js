@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import useAuth from '../../hooks/useAuth';
-
+import "bootswatch/dist/cerulean/bootstrap.min.css";
 //Once the complete appointment has been made and successfully added to the schedule, give a console.alert popup
 //giving "Appointment successfully created" confirmation message
 
@@ -68,15 +68,19 @@ const RescheduleFormPage = () => {
         }
     };
 
+{/* <div >
+      <label >Example select</label>
+      <select ></select> */}
+
     return (
-        <div>
+        <div class="form-group">
             <form aria-label="Default select example">
-            <label>Select Appointment Date: </label>
-            <select>
+            <label for="exampleSelect1">Select Appointment Date: </label>
+            <select class="form-select" id="exampleSelect1">
                 {dates.map((option) => <option value={option.date}>{option.date}</option>)}
             </select>
             <label>Select Appointment Time: </label>
-            <select>
+            <select class="form-select" id="exampleSelect1">
                 <option>8am</option>
                 <option>10am</option>
                 <option>12pm</option>
@@ -85,7 +89,7 @@ const RescheduleFormPage = () => {
                 <option>6pm</option>
             </select>
             </form>
-            <button>Submit</button>
+            <button type="button" class="btn btn-outline-primary">Submit</button>
         </div>
      );
 }

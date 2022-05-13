@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import AuthContext from "../../context/AuthContext";
 import useCustomForm from "../../hooks/useCustomForm";
+import "bootswatch/dist/cerulean/bootstrap.min.css";
 
 const RegisterPage = () => {
   const { registerUser } = useContext(AuthContext);
@@ -78,7 +79,7 @@ const RegisterPage = () => {
           NOTE: Make this an uncommon password with characters, numbers, and
           special characters!
         </p>
-        <button>Register</button>
+        <button type="button" class="btn btn-outline-primary">Register</button>
       </form>
     </div>
   );

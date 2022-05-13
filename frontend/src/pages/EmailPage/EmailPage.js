@@ -4,6 +4,8 @@ import emailjs from '@emailjs/browser';
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
+import "bootswatch/dist/cerulean/bootstrap.min.css";
+import { useNavigate } from 'react-router-dom';
 //Toastify tutorial - https://www.youtube.com/watch?v=VdVGPov7Yqc
 
 const EmailPage = () => {
@@ -12,6 +14,7 @@ const EmailPage = () => {
     const [patientUsers, setPatientUsers] = useState([]);
     const [index, setIndex] = useState(0)
     const [currentPatient, setCurrentPatient] = useState({})
+    const navigate = useNavigate()
     const form = useRef();
 
     useEffect(() => {
@@ -51,7 +54,8 @@ const EmailPage = () => {
           console.log(error.text);
         });
       setCurrentPatient(patientUsers[index + 1])
-      setIndex(index+1)
+      setIndex(index + 1)
+      navigate('/')
     };
     
 

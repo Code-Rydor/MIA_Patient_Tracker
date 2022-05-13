@@ -4,20 +4,15 @@ import useAuth from "../../hooks/useAuth";
 import { Link } from "react-router-dom";
 
 import axios from "axios";
+import "bootswatch/dist/cerulean/bootstrap.min.css";
+
 
 const MIAHomePage = () => {
 
     return ( 
         <div>
-            {/* <h1>Welcome {user.username}!</h1>
-            <Link to="/rescheduleform">Add Appointment</Link>
+            <h1>Welcome to the Home Page</h1>
 
-            {patients &&
-        patients.map((patient) => (
-          <p key={patient.id}>
-            {patient.first_name} {patient.last_name} {patient.phone_number} {patient.email}
-          </p>
-        ))} */}
         </div>
      );
 }
