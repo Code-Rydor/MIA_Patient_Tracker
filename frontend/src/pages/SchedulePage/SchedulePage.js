@@ -31,30 +31,51 @@ const ToBeContactedPage = () => {
                 headers: {
                     Authorization: 'Bearer ' + token
                 }
+            
             })
-            setAppointments(response.data)
+            console.log("Response: ", response.data)
+            let modifiedArray = response.data.map((item) =>
+            {
+                return { title: item.patient_id.first_name + " " + item.patient_id.last_name + " " + item.appointment_time, date: item.appointment_day_id.date }
+            })
 
-            console.log("Appointments:", response.data)
-            console.log("Patient: ", response.data[0].patient_id.first_name)
-            console.log("Date: ", response.data[0].appointment_day_id.date)
-            console.log("Time: ", response.data[0].appointment_time)
+            setAppointments(modifiedArray);
+            //setAppointments(response.data)
+
+            // console.log("Patient: ", response.data[0].patient_id.first_name)
+            // console.log("Date: ", response.data[0].appointment_day_id.date)
+            // console.log("Time: ", response.data[0].appointment_time)
         } catch (error) {
             console.log(error.message)
         }
     };
+    // function modify() {
+    //     let modifiedArray = appointments.map((item) =>
+    //     {
+    //         return { title: item.patient_id.first_name, date: item.appointment_day_id.date }
+    //     })
+    //     console.log("Title and Date Array: ", modifiedArray);
+    //     setAppointments(modifiedArray);
+    // }
+    //let modifiedArray = array.map(item => {title: item.patient_id.first_name, date: item.appointment_day_id.date })
 
     return ( 
         <div>
+            {console.log(appointments)}
             <FullCalendar
-            plugins={[daygridPlugin, interactionPlugin]}
+                events={appointments}
+                plugins={[daygridPlugin, interactionPlugin]}
                 dateClick={handleDateClick}
-            //     {dates.map((option) => <option value={option.date}>{option.date}</option>)}
-            // {appointments.map((el) => events={[{ title: {el.patient_id.first_name}, date: {el.appointment_day_id.date}})}
-            events={[
-                { title: 'Event 1', date: '2022-05-01' },
-                { title: 'event 2', date: '2022-05-02' }
-              ]}
+
+                // {...appointments.map((item) => {
+                //     return events = { [{ title: item.title, date: item.date }] }
+                // })}
+            // events={[
+            //     { title: 'Event 1', date: '2022-05-01' },
+            //     { title: 'event 2', date: '2022-05-02' }
+            //   ]}
             />
+            {/* <button onClick={modify}>CLICK</button> */}
         </div>
      );
 }
