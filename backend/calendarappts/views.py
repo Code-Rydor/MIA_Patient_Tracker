@@ -23,7 +23,7 @@ def calendarappt_list(request):
 @api_view(['GET', 'PUT', 'DELETE'])
 @permission_classes([IsAuthenticated])
 def calendarappt_detail(request, pk):
-    appt = get_object_or_404(appt, pk=pk)
+    appt = get_object_or_404(CalendarAppt, pk=pk)
     if request.method == 'GET':
         serializer = CalendarApptSerializer(appt)
         return Response(serializer.data)
