@@ -1,14 +1,14 @@
 from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import AllowAny
 from rest_framework import status
 from .serializers import CalendarApptSerializer
 from .models import CalendarAppt
 
 
 @api_view(['GET', 'POST'])
-@permission_classes([IsAuthenticated])
+@permission_classes([AllowAny])
 def calendarappt_list(request):
     if request.method == 'GET':
         appt = CalendarAppt.objects.all()
@@ -21,7 +21,7 @@ def calendarappt_list(request):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 @api_view(['GET', 'PUT', 'DELETE'])
-@permission_classes([IsAuthenticated])
+@permission_classes([AllowAny])
 def calendarappt_detail(request, pk):
     appt = get_object_or_404(CalendarAppt, pk=pk)
     if request.method == 'GET':

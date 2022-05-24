@@ -1,44 +1,47 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import useAuth from '../../hooks/useAuth';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 import "bootswatch/dist/cerulean/bootstrap.min.css";
-//Once the complete appointment has been made and successfully added to the schedule, give a console.alert popup
-//giving "Appointment successfully created" confirmation message
 
-// let initialValues = {
-//     first_name: "",
-//     last_name: "",
-//     phone_number: "",
-//     email: "",
-// };
-
-    // const [formData, handleInputChange, handleSubmit] = useCustomForm(initialValues)
-
-    // async function postNewAppointment() {
-    //     try {
-    //         let response = await axios.get("http://127.0.0.1:8000/api/appointments/", {
-    //             headers: {
-    //                 Authorization: 'Bearer ' + token
-    //             }
-    //         })
-    //         console.log(response.data)
-    //         // navigate('/') add endpoint taking the patient to page for selecting appoint day and time?
-    //     } catch (error) {
-    //         console.log(error.message)
-    //     }
-    // };
 
 const RescheduleFormPage = () => {
 
     const [user, token] = useAuth()
     const [dates, setDates] = useState([])
-    const [times, setTimes] = useState([])
+    const [name, setName] = useState('')
+    const [appt_Date, setAppt_Date] = useState('')
+    const [appt_Time, setAppt_Time] = useState('')
+
+    let newAppt = {
+        name: name,
+        appt_date: appt_Date,
+        appt_time: appt_Time,
+    };
+    console.log(newAppt)
     
     useEffect(() => {
-        
         getAppointmentDates();
-        getAppointmentTimes();
     }, [token]);
+
+    async function createAppt() {
+        let response = await axios.post("http://127.0.0.1:8000/api/calendarappts/", newAppt)
+            .then((res) => {
+                console.log(res)
+                toast('Your appointment is confirmed!', {
+                    position: "top-right",
+                    autoClose: 4000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: true,
+                    progress: undefined,
+                });
+            }, (err) => {
+                console.log(err.text);
+            })
+    }
     
     async function getAppointmentDates() {
         try {
@@ -54,44 +57,50 @@ const RescheduleFormPage = () => {
         }
     };
 
-    async function getAppointmentTimes() {
-        try {
-            let response = await axios.get("http://127.0.0.1:8000/api/appointments/", {
-                headers: {
-                    Authorization: 'Bearer ' + token
-                }
-            })
-            setTimes(response.data)
-            console.log("Times:", response.data)
-        } catch (error) {
-            console.log(error.message)
-        }
-    };
-
-{/* <div >
-      <label >Example select</label>
-      <select ></select> */}
-
     return (
-        <div class="form-group">
+        <div className="form-group">
             <form aria-label="Default select example">
-            <label class="col-form-label" for="inputDefault">Enter patient name:</label>
-            <input type="text" class="form-control" id="inputDefault"></input>
+            <label className="col-form-label" for="inputDefault">Enter patient name:</label>
+                <input
+                    type="text"
+                    className="form-control"
+                    id="inputDefault"
+                    value={name}
+                    onChange={(event) => setName(event.target.value)}></input>
             <label for="exampleSelect1">Select Appointment Date: </label>
-            <select class="form-select" id="exampleSelect1">
+                <select
+                    className="form-select"
+                    id="exampleSelect1"
+                    value={appt_Date}
+                    onChange={(event) => setAppt_Date(event.target.value)}>
                 {dates.map((option) => <option value={option.date}>{option.date}</option>)}
             </select>
             <label>Select Appointment Time: </label>
-            <select class="form-select" id="exampleSelect1">
-                <option>8am</option>
-                <option>10am</option>
-                <option>12pm</option>
-                <option>2pm</option>
-                <option>4pm</option>
-                <option>6pm</option>
+                <select
+                    className="form-select"
+                    id="exampleSelect1"
+                    value={appt_Time}
+                    onChange={(event) => setAppt_Time(event.target.value)}>
+                <option value="8am">8am</option>
+                <option value="10am">10am</option>
+                <option value="12pm">12pm</option>
+                <option value="2pm">2pm</option>
+                <option value="4pm">4pm</option>
+                <option value="6pm">6pm</option>
             </select>
             </form>
-            <button type="button" class="btn btn-outline-primary">Submit</button>
+            <button type="submit" className="btn btn-outline-primary" onClick={createAppt}>Submit</button>
+            <ToastContainer
+            position="top-right"
+            autoClose={4000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover={false}
+            />
         </div>
      );
 }

@@ -18,11 +18,12 @@ const ToBeContactedPage = () => {
 
     const [user, token] = useAuth();
     const [appointments, setAppointments] = useState([])
-    const [index, setIndex] = useState(0)
+    const [appointments2, setAppointments2] = useState([])
     const navigate = useNavigate()
     
     useEffect(() => {
         getAppointments();
+        getAppointments2();
     }, [token]);
 
     async function getAppointments() {
@@ -40,15 +41,27 @@ const ToBeContactedPage = () => {
             })
 
             setAppointments(modifiedArray);
-            //setAppointments(response.data)
-
-            // console.log("Patient: ", response.data[0].patient_id.first_name)
-            // console.log("Date: ", response.data[0].appointment_day_id.date)
-            // console.log("Time: ", response.data[0].appointment_time)
         } catch (error) {
             console.log(error.message)
         }
     };
+
+    async function getAppointments2() {
+        try {
+            let response = await axios.get("http://127.0.0.1:8000/api/calendarappts/");
+            console.log("Response2: ", response.data)
+            let modifiedArray2 = response.data.map((item) =>
+            {
+                return { title: item.name + " " + item.appt_time, date: item.appt_date }
+            })
+
+            setAppointments2(modifiedArray2);
+        } catch (error) {
+            console.log(error.message)
+        }
+    };
+
+
     // function modify() {
     //     let modifiedArray = appointments.map((item) =>
     //     {
@@ -61,9 +74,9 @@ const ToBeContactedPage = () => {
 
     return ( 
         <div>
-            {console.log(appointments)}
+            {console.log(appointments2)}
             <FullCalendar
-                events={appointments}
+                events={appointments2}
                 plugins={[daygridPlugin, interactionPlugin]}
                 dateClick={handleDateClick}
 
