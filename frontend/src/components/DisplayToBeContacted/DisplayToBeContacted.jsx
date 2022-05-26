@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import "bootswatch/dist/morph/bootstrap.min.css";
 
 //! I want this table to re render when a new name gets added
 
@@ -13,9 +14,9 @@ const DisplayToBeContacted = ({ users }) => {
     
     return ( 
         <div>
-            <table>
-                <thead>
-                    <tr>
+            <table className="table table-hover">
+                <thead scope="row">
+                    <tr className="table-light">
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Phone Number</th>
@@ -26,7 +27,7 @@ const DisplayToBeContacted = ({ users }) => {
                     {selectedUser
                         .map((user, index) => {
                             return (
-                                <tr key={index}>
+                                <tr className="table-light" key={index}>
                                     <td>{user.first_name}</td>
                                     <td>{user.last_name}</td>
                                     <td>{user.phone_number}</td>
@@ -36,7 +37,7 @@ const DisplayToBeContacted = ({ users }) => {
                         })}
                 </tbody>
             </table>
-            <button class="btn btn-outline-primary" onClick={() => navigate("/email")}>Email</button>
+            <button className="btn" onClick={() => navigate("/email")}>Email</button>
         </div>
      );
 }

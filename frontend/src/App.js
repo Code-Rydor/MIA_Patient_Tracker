@@ -1,6 +1,6 @@
 // General Imports
 import { Routes, Route} from "react-router-dom";
-import "bootswatch/dist/cerulean/bootstrap.min.css";
+import "bootswatch/dist/morph/bootstrap.min.css";
 
 
 // Pages Imports

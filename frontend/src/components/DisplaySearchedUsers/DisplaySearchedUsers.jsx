@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { render } from '@testing-library/react';
+import "bootswatch/dist/morph/bootstrap.min.css";
 
 const DisplaySearchedUsers = ({ users, token }) => {
 
@@ -31,25 +31,26 @@ const DisplaySearchedUsers = ({ users, token }) => {
     };
 
     return ( 
-        <table >
-            <thead>
-                <tr>
+        <table className="table table-hover">
+            <thead scope="row">
+                <tr className="table-light">
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Phone Number</th>
                     <th>Email</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 {users
                     .map((user, index) => {
                         return (
-                            <tr key={index}>
+                            <tr className="table-light" key={index}>
                                 <td>{user.first_name}</td>
                                 <td>{user.last_name}</td>
                                 <td>{user.phone_number}</td>
                                 <td>{user.email}</td>
-                                <td><button class="btn btn-outline-primary" onClick={() => patchToBeContacted(user.id)} type='button'>Add To Contact List</button></td>
+                                <td><button className="btn" onClick={() => patchToBeContacted(user.id)} type='button'>Add To Contact List</button></td>
                             </tr>
                         );
                     })}

@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import FullCalendar from '@fullcalendar/react';
 import daygridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
+import "bootswatch/dist/morph/bootstrap.min.css";
 
 
 
@@ -22,7 +23,7 @@ const ToBeContactedPage = () => {
     const navigate = useNavigate()
     
     useEffect(() => {
-        getAppointments();
+        // getAppointments();
         getAppointments2();
     }, [token]);
 

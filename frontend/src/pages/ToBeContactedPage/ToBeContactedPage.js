@@ -4,7 +4,7 @@ import DisplaySearchedUsers from '../../components/DisplaySearchedUsers/DisplayS
 import SearchForUser from '../../components/SearchForUser/SearchForUser';
 import DisplayToBeContacted from '../../components/DisplayToBeContacted/DisplayToBeContacted';
 import axios from "axios";
-import "bootswatch/dist/cerulean/bootstrap.min.css";
+import "bootswatch/dist/morph/bootstrap.min.css";
 
 
 const ToBeContactedPage = () => {
@@ -47,10 +47,11 @@ const ToBeContactedPage = () => {
     return ( 
         <div>
             <SearchForUser handleSubmit={handleSubmit} input={input} setInput={setInput} />
+            <br />
+            <br />
             <DisplaySearchedUsers users={searchedUser} input={input}
                 token={token} />
-            <br></br>
-            <h3>To Be Contacted List</h3>
+            <h3 className="m-5 text-center">To Be Contacted List</h3>
             <DisplayToBeContacted users={users} />
         </div>
      );

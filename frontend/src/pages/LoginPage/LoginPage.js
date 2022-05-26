@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import AuthContext from "../../context/AuthContext";
 import useCustomForm from "../../hooks/useCustomForm";
 import { Link } from "react-router-dom";
-import "bootswatch/dist/cerulean/bootstrap.min.css";
+import "bootswatch/dist/morph/bootstrap.min.css";
 
 
 const LoginPage = () => {
@@ -21,19 +21,21 @@ const LoginPage = () => {
 
   return (
     <div className="container">
-      <form className="form" onSubmit={handleSubmit}>
-        <label>
+      <form className="d-flex flex-column align-items-center" onSubmit={handleSubmit}>
+        <label className="my-2">
           Username:{" "}
           <input
+            className="rounded"
             type="text"
             name="username"
             value={formData.username}
             onChange={handleInputChange}
           />
         </label>
-        <label>
+        <label className="my-2">
           Password:{" "}
           <input
+            className="rounded"
             type="text"
             name="password"
             value={formData.password}
@@ -44,7 +46,7 @@ const LoginPage = () => {
           <p className="error">Login failed, incorrect credentials!</p>
         ) : null}
         <Link to="/register">Click to register!</Link>
-        <button class="btn btn-outline-primary">Login!</button>
+        <button class="btn">Login!</button>
       </form>
     </div>
   );

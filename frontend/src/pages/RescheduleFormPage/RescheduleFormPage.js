@@ -3,7 +3,8 @@ import axios from 'axios';
 import useAuth from '../../hooks/useAuth';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
-import "bootswatch/dist/cerulean/bootstrap.min.css";
+import "bootswatch/dist/morph/bootstrap.min.css";
+
 
 
 const RescheduleFormPage = () => {
@@ -30,8 +31,8 @@ const RescheduleFormPage = () => {
             .then((res) => {
                 console.log(res)
                 toast('Your appointment is confirmed!', {
-                    position: "top-right",
-                    autoClose: 4000,
+                    position: "top-center",
+                    autoClose: 8000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: false,
@@ -58,16 +59,16 @@ const RescheduleFormPage = () => {
     };
 
     return (
-        <div className="form-group">
-            <form aria-label="Default select example">
-            <label className="col-form-label" for="inputDefault">Enter patient name:</label>
+        <div className="container">
+            <form className="d-flex flex-column align-items-center">
+            <label className="my-2" for="inputDefault">Enter patient name:</label>
                 <input
                     type="text"
                     className="form-control"
                     id="inputDefault"
                     value={name}
                     onChange={(event) => setName(event.target.value)}></input>
-            <label for="exampleSelect1">Select Appointment Date: </label>
+            <label className="my-2" for="exampleSelect1">Select Appointment Date: </label>
                 <select
                     className="form-select"
                     id="exampleSelect1"
@@ -75,7 +76,7 @@ const RescheduleFormPage = () => {
                     onChange={(event) => setAppt_Date(event.target.value)}>
                 {dates.map((option) => <option value={option.date}>{option.date}</option>)}
             </select>
-            <label>Select Appointment Time: </label>
+            <label className="my-2">Select Appointment Time: </label>
                 <select
                     className="form-select"
                     id="exampleSelect1"
@@ -87,20 +88,22 @@ const RescheduleFormPage = () => {
                 <option value="2pm">2pm</option>
                 <option value="4pm">4pm</option>
                 <option value="6pm">6pm</option>
-            </select>
+                </select>
+                <div className="d-flex my-5">
+                    <button type="submit" className="btn" onClick={createAppt}>Submit</button>
+                    <ToastContainer
+                    position="top-center"
+                    autoClose={8000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover={false}
+                    />
+                </div>
             </form>
-            <button type="submit" className="btn btn-outline-primary" onClick={createAppt}>Submit</button>
-            <ToastContainer
-            position="top-right"
-            autoClose={4000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover={false}
-            />
         </div>
      );
 }

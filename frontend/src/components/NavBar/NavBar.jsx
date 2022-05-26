@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
 import "./NavBar.css";
+import "bootswatch/dist/morph/bootstrap.min.css";
 
 const Navbar = () => {
   const { logoutUser, user } = useContext(AuthContext);
@@ -15,15 +16,15 @@ const Navbar = () => {
             <b>MIA Patient Tracker</b>
           </Link>
         </li>
-        <li><button onClick={() => navigate("/addpatient")}>Add New Patient</button></li>
-        <li><button onClick={() => navigate("/tobecontacted")}>Make Contact</button></li>
-        <li><button onClick={() => navigate("/makeappointment")}>Make Appointment</button></li>
-        <li><button onClick={() => navigate("/schedule")}>Schedule</button></li>
+        <li><button class="btn btn-secondary my-2 my-sm-0" onClick={() => navigate("/addpatient")}>Add New Patient</button></li>
+        <li><button class="btn btn-secondary my-2 my-sm-0" onClick={() => navigate("/tobecontacted")}>Make Contact</button></li>
+        <li><button class="btn btn-secondary my-2 my-sm-0" onClick={() => navigate("/makeappointment")}>Make Appointment</button></li>
+        <li><button class="btn btn-secondary my-2 my-sm-0" onClick={() => navigate("/schedule")}>Schedule</button></li>
         <li>
           {user ? (
-            <button onClick={logoutUser}>Logout</button>
+            <button class="btn btn-secondary my-2 my-sm-0" onClick={logoutUser}>Logout</button>
           ) : (
-              <button onClick={() => navigate("/login")}>Login</button>
+              <button class="btn btn-secondary my-2 my-sm-0" onClick={() => navigate("/login")}>Login</button>
           )}
         </li>
       </ul>
