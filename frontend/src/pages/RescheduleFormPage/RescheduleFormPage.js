@@ -20,7 +20,6 @@ const RescheduleFormPage = () => {
         appt_date: appt_Date,
         appt_time: appt_Time,
     };
-    console.log(newAppt)
     
     useEffect(() => {
         getAppointmentDates();
@@ -52,7 +51,6 @@ const RescheduleFormPage = () => {
                 }
             })
             setDates(response.data)
-            console.log("Dates:", response.data)
         } catch (error) {
             console.log(error.message)
         }
@@ -82,14 +80,20 @@ const RescheduleFormPage = () => {
                     id="exampleSelect2"
                     value={appt_Time}
                     onChange={(event) => setAppt_Time(event.target.value)}>
-                <option value="8am">8am</option>
-                <option value="10am">10am</option>
-                <option value="12pm">12pm</option>
-                <option value="2pm">2pm</option>
-                <option value="4pm">4pm</option>
-                <option value="6pm">6pm</option>
+                    <option value="8am">8am</option>
+                    <option value="8am">9am</option>
+                    <option value="10am">10am</option>
+                    <option value="8am">11am</option>
+                    <option value="12pm">12pm</option>
+                    <option value="8am">1pm</option>
+                    <option value="2pm">2pm</option>
+                    <option value="8am">3pm</option>
+                    <option value="4pm">4pm</option>
+                    <option value="8am">5pm</option>
+                    <option value="6pm">6pm</option>
                 </select>
-                <div className="d-flex my-5">
+                <br />
+                <div className="d-flex flex-column align-items-center">
                     <button type="submit" className="btn btn-outline-secondary" onClick={createAppt}>Submit</button>
                     <ToastContainer
                     position="top-center"

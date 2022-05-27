@@ -1,8 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "bootswatch/dist/morph/bootstrap.min.css";
 
-//! I want this table to re render when a new name gets added
-
 const DisplayToBeContacted = ({ users }) => {
     
     const navigate = useNavigate();
@@ -13,7 +11,7 @@ const DisplayToBeContacted = ({ users }) => {
     })
     
     return ( 
-        <div>
+        <div className="d-flex flex-column align-items-center">
             <table className="table table-hover">
                 <thead scope="row">
                     <tr className="table-light">

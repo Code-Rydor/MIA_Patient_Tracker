@@ -19,7 +19,7 @@ const Navbar = () => {
         <li><button class="btn btn-secondary my-2 my-sm-0" onClick={() => navigate("/addpatient")}>Add New Patient</button></li>
         <li><button class="btn btn-secondary my-2 my-sm-0" onClick={() => navigate("/tobecontacted")}>Make Contact</button></li>
         <li><button class="btn btn-secondary my-2 my-sm-0" onClick={() => navigate("/makeappointment")}>Make Appointment</button></li>
-        <li><button class="btn btn-secondary my-2 my-sm-0" onClick={() => navigate("/schedule")}>Schedule</button></li>
+        <li><button class="btn btn-secondary my-2 my-sm-0" onClick={() => navigate("/schedule")}>View Schedule</button></li>
         <li>
           {user ? (
             <button class="btn btn-secondary my-2 my-sm-0" onClick={logoutUser}>Logout</button>

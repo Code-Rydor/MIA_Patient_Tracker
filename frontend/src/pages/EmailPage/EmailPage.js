@@ -5,8 +5,7 @@ import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import "bootswatch/dist/morph/bootstrap.min.css";
-import { useNavigate } from 'react-router-dom';
-//Toastify tutorial - https://www.youtube.com/watch?v=VdVGPov7Yqc
+
 
 const EmailPage = () => {
 
@@ -14,7 +13,6 @@ const EmailPage = () => {
     const [patientUsers, setPatientUsers] = useState([]);
     const [index, setIndex] = useState(0)
     const [currentPatient, setCurrentPatient] = useState({})
-    const navigate = useNavigate()
     const form = useRef();
 
     useEffect(() => {
@@ -55,10 +53,7 @@ const EmailPage = () => {
         });
       setCurrentPatient(patientUsers[index + 1])
       setIndex(index + 1)
-    //   navigate('/')
     };
-    
-
 
     return (
         <div className="container">
@@ -69,7 +64,8 @@ const EmailPage = () => {
                 <input className="form-control" type="email" name="receiving_email_address" value={currentPatient.email}/>
                 <label className="form-label mt-4">Message:</label>
                 <textarea className="form-control" rows="1" name="message" value="Click the link below to make a new appointment today!"/>
-                <div className="d-flex my-5">
+                <div className="d-flex flex-column align-items-center">
+                <br />
                 <button className="btn btn-outline-secondary" type="submit" value="Send">Send</button>
                 <ToastContainer
                 position="top-right"

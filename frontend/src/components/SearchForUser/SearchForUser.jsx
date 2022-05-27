@@ -7,7 +7,7 @@ const SearchForUser = ({handleSubmit, input , setInput}) => {
         <div className="container">
             <form className="d-flex flex-column align-items-center" onSubmit={(e) => handleSubmit(e)}>
                 <label className="my-2">Search patient name or phone number</label>
-                <input type='text' value={input} onChange={(event) => setInput(event.target.value)} />
+                <input className="form-control" type='text' value={input} onChange={(event) => setInput(event.target.value)} />
                 <br />
                 <button className="btn btn-outline-secondary" type='submit'>Search</button>
             </form>

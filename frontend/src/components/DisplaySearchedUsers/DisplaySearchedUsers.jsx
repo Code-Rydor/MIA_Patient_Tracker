@@ -1,30 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import axios from 'axios';
 import "bootswatch/dist/morph/bootstrap.min.css";
 
 const DisplaySearchedUsers = ({ users, token }) => {
 
- 
-    
-    // function handlePatchSubmit() {
-    //     patchToBeContacted(patchedUser);
-    // };
 
     const patchToBeContacted = async (pk) => {
-        console.log({
-            headers: {
-                Authorization: "Bearer " + token,
-            }
-        }            
-        )
-        console.log(`http://127.0.0.1:8000/api/auth/users/patch/${pk}/`)
         try {
             let response = await axios.patch(`http://127.0.0.1:8000/api/auth/users/patch/${pk}/`, {}, {
                 headers: {
                     Authorization: "Bearer " + token,
                 },
                 });
-            console.log(response.data)
+            console.log(response.data);
+            window.location.reload();
         } catch (error) {
             console.log(error.message);
         }

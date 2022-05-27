@@ -24,7 +24,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-        background-image: linear-gradient(to right,
+    background-image: linear-gradient(to right,
     rgb(36, 84, 124, .5),
     rgb(36, 84, 124, 0));
   }
@@ -32,47 +32,3 @@ body {
 label {
     color: black
 }
-
-/* .upper-centered {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-}
-
-.centered {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    } */
-
-/* img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 84%;
-    opacity: 40%;
-  } */
-
-/* h1 {
-    font-size: 70px;
-} */
-/* /* .main-container { */
-    /* background-image: url(../../images/clipboard.jpg);
-    background-size: cover;
-    padding: 1rem; */
-
-/* body {
-    background-image: url(../../images/clipboard.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-        background-image: linear-gradient(to right,
-    rgb(36, 84, 124, 1)10%,
-    rgb(36, 84, 124, 0));
-  } */
