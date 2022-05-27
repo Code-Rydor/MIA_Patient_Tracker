@@ -5,7 +5,7 @@ import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import "bootswatch/dist/morph/bootstrap.min.css";
-
+//This page will error and will not compile if no one is in the to be contacted list
 
 const EmailPage = () => {
 
@@ -64,8 +64,7 @@ const EmailPage = () => {
                 <input className="form-control" type="email" name="receiving_email_address" value={currentPatient.email}/>
                 <label className="form-label mt-4">Message:</label>
                 <textarea className="form-control" rows="1" name="message" value="Click the link below to make a new appointment today!"/>
-                <div className="d-flex flex-column align-items-center">
-                <br />
+                <div className="d-flex my-5">
                 <button className="btn btn-outline-secondary" type="submit" value="Send">Send</button>
                 <ToastContainer
                 position="top-right"
