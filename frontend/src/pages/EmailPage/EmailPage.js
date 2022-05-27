@@ -63,11 +63,11 @@ const EmailPage = () => {
     return (
         <div className="container">
             <form className="d-flex flex-column" ref={form} onSubmit={sendEmail}>    
-                <label className="form-label mt-4">Name</label>
+                <label className="form-label mt-4">Name:</label>
                 <input className="form-control" type="text" name="user_name" value="Your Chiropractor" />
-                <label className="form-label mt-4">Email</label>
+                <label className="form-label mt-4">Email:</label>
                 <input className="form-control" type="email" name="receiving_email_address" value={currentPatient.email}/>
-                <label className="form-label mt-4">Message</label>
+                <label className="form-label mt-4">Message:</label>
                 <textarea className="form-control" rows="1" name="message" value="Click the link below to make a new appointment today!"/>
                 <div className="d-flex my-5">
                 <button className="btn btn-outline-secondary" type="submit" value="Send">Send</button>

@@ -1,12 +1,41 @@
-.container {
+.img-container {
+    width: 100%; height: 813px; background-color: black;
+    background-image: url(../../images/clipboard.jpg);
+    background-size: cover;
+    background-position: center;
     position: relative;
-    text-align: center;
-    /* color: white; */
+    
+}
+
+.img-container > h1 {
+    font-size: 4rem; color:aliceblue; font-weight: bold;
+    position: absolute; left: 0; top: 0; width: 100%; height: 813px;
+    padding: 2em;
+    background-image: linear-gradient(to right,
+    rgb(36, 84, 124, .5)10%,
+    rgb(36, 84, 124, 0));
+    
+}
+
+body {
+    background-image: url(../../images/clipboard.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+        background-image: linear-gradient(to right,
+    rgb(36, 84, 124, .5),
+    rgb(36, 84, 124, 0));
   }
 
-.upper-centered {
+label {
+    color: black
+}
+
+/* .upper-centered {
     position: absolute;
-    top: 35%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
 
@@ -18,19 +47,23 @@
     left: 50%;
     transform: translate(-50%, -50%);
 
-    }
+    } */
 
-img {
+/* img {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 84%;
     opacity: 40%;
-  }
-/* .main-container {
-    background-image: url(../../images/clipboard.jpg);
+  } */
+
+/* h1 {
+    font-size: 70px;
+} */
+/* /* .main-container { */
+    /* background-image: url(../../images/clipboard.jpg);
     background-size: cover;
-    padding: 1rem;
+    padding: 1rem; */
 
 /* body {
     background-image: url(../../images/clipboard.jpg);
@@ -39,4 +72,7 @@ img {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+        background-image: linear-gradient(to right,
+    rgb(36, 84, 124, 1)10%,
+    rgb(36, 84, 124, 0));
   } */

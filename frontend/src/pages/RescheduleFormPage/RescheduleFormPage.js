@@ -60,8 +60,8 @@ const RescheduleFormPage = () => {
 
     return (
         <div className="container">
-            <form className="d-flex flex-column align-items-center">
-            <label className="my-2" for="inputDefault">Enter patient name:</label>
+            <form className="d-flex flex-column">
+            <label className="my-3" for="inputDefault">Enter patient name:</label>
                 <input
                     type="text"
                     className="form-control"

@@ -9,9 +9,10 @@
   }
 
   :root {
-    --fc-border-color: rgb(36, 84, 124);
+    --fc-border-color: rgb(0, 0, 0);
     --fc-button-bg-color: rgb(36, 84, 124);
     --fc-event-bg-color: rgb(36, 84, 124);
     --fc-event-border-color: rgb(36, 84, 124);
     --fc-today-bg-color: rgba(36, 84, 124, 0.25);
+    --fc-neutral-text-color: #808080;
   }

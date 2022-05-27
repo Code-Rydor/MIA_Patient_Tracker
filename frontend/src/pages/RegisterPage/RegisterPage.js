@@ -21,7 +21,7 @@ const RegisterPage = () => {
 
   return (
     <div className="container">
-      <form className="d-flex flex-column align-items-center" onSubmit={handleSubmit}>
+      <form className="d-flex flex-column align-items-center justify-content-center" onSubmit={handleSubmit}>
         <label className="my-2">
           Username:{" "}
           <input
