@@ -37,7 +37,7 @@ const DisplayToBeContacted = ({ users }) => {
                         })}
                 </tbody>
             </table>
-            <button className="btn" onClick={() => navigate("/email")}>Email</button>
+            <button className="btn btn-outline-secondary" onClick={() => navigate("/email")}>Email</button>
         </div>
      );
 }

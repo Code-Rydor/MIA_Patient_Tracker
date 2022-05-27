@@ -21,7 +21,7 @@ const RegisterUserPage = () => {
 
   return (
     <div className="container">
-      <form className="d-flex flex-column align-items-center" onSubmit={handleSubmit}>
+      <form className="d-flex flex-column align-items-center justify-content-center" onSubmit={handleSubmit}>
         <label className="my-2">
           Username:{" "}
           <input
@@ -86,7 +86,7 @@ const RegisterUserPage = () => {
           NOTE: Make this an uncommon password with characters, numbers, and
           special characters!
         </p>
-        <button className="btn">Register</button>
+        <button className="btn btn-outline-secondary">Register</button>
       </form>
     </div>
   );

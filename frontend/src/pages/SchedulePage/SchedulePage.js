@@ -5,7 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import FullCalendar from '@fullcalendar/react';
 import daygridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
-import "bootswatch/dist/morph/bootstrap.min.css";
+// import "bootswatch/dist/morph/bootstrap.min.css";
+import "./SchedulePage.css"
 
 
 
@@ -73,6 +74,8 @@ const ToBeContactedPage = () => {
     // }
     //let modifiedArray = array.map(item => {title: item.patient_id.first_name, date: item.appointment_day_id.date })
 
+
+
     return ( 
         <div>
             {console.log(appointments2)}
@@ -80,6 +83,8 @@ const ToBeContactedPage = () => {
                 events={appointments2}
                 plugins={[daygridPlugin, interactionPlugin]}
                 dateClick={handleDateClick}
+                aspectRatio="2.4"
+                // height='auto'
 
                 // {...appointments.map((item) => {
                 //     return events = { [{ title: item.title, date: item.date }] }

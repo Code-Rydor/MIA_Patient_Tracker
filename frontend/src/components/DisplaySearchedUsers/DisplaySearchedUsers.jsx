@@ -50,7 +50,7 @@ const DisplaySearchedUsers = ({ users, token }) => {
                                 <td>{user.last_name}</td>
                                 <td>{user.phone_number}</td>
                                 <td>{user.email}</td>
-                                <td><button className="btn" onClick={() => patchToBeContacted(user.id)} type='button'>Add To Contact List</button></td>
+                                <td><button className="btn btn-outline-secondary" onClick={() => patchToBeContacted(user.id)} type='button'>Add To Contact List</button></td>
                             </tr>
                         );
                     })}

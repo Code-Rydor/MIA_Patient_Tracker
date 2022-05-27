@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import AuthContext from "../../context/AuthContext";
 import useCustomForm from "../../hooks/useCustomForm";
 import "bootswatch/dist/morph/bootstrap.min.css";
+import "./RegisterPage.css"
 
 const RegisterPage = () => {
   const { registerUser } = useContext(AuthContext);
@@ -85,7 +86,7 @@ const RegisterPage = () => {
           NOTE: Make this an uncommon password with characters, numbers, and
           special characters!
         </p>
-        <button type="button" className="btn">Register</button>
+        <button type="button" className="btn btn-outline-secondary">Register</button>
       </form>
     </div>
   );

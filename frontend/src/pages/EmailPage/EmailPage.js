@@ -70,7 +70,7 @@ const EmailPage = () => {
                 <label className="form-label mt-4">Message</label>
                 <textarea className="form-control" rows="1" name="message" value="Click the link below to make a new appointment today!"/>
                 <div className="d-flex my-5">
-                <button className="btn" type="submit" value="Send">Send</button>
+                <button className="btn btn-outline-secondary" type="submit" value="Send">Send</button>
                 <ToastContainer
                 position="top-right"
                 autoClose={4000}

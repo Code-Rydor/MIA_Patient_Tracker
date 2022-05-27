@@ -79,7 +79,7 @@ const RescheduleFormPage = () => {
             <label className="my-2">Select Appointment Time: </label>
                 <select
                     className="form-select"
-                    id="exampleSelect1"
+                    id="exampleSelect2"
                     value={appt_Time}
                     onChange={(event) => setAppt_Time(event.target.value)}>
                 <option value="8am">8am</option>
@@ -90,7 +90,7 @@ const RescheduleFormPage = () => {
                 <option value="6pm">6pm</option>
                 </select>
                 <div className="d-flex my-5">
-                    <button type="submit" className="btn" onClick={createAppt}>Submit</button>
+                    <button type="submit" className="btn btn-outline-secondary" onClick={createAppt}>Submit</button>
                     <ToastContainer
                     position="top-center"
                     autoClose={8000}
